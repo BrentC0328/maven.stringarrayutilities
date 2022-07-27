@@ -1,5 +1,7 @@
 package com.github.curriculeon;
 
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader;
+
 /**
  * Created by leon on 1/29/18.
  */
@@ -9,7 +11,9 @@ public class StringArrayUtils {
      * @return first element of specified array
      */ // TODO
     public static String getFirstElement(String[] array) {
-        return null;
+        String result = "";
+        result = array[0];
+        return result;
     }
 
     /**
@@ -17,7 +21,9 @@ public class StringArrayUtils {
      * @return second element in specified array
      */
     public static String getSecondElement(String[] array) {
-        return null;
+        String result = "";
+        result = array[1];
+        return result;
     }
 
     /**
@@ -25,7 +31,12 @@ public class StringArrayUtils {
      * @return last element in specified array
      */ // TODO
     public static String getLastElement(String[] array) {
-        return null;
+        String result = "";
+        //get array length
+        int length = array.length;
+        //return array of the length number - 1 (because array starts at 0, not 1)
+        result = array[length - 1];
+        return result;
     }
 
     /**
@@ -33,7 +44,12 @@ public class StringArrayUtils {
      * @return second to last element in specified array
      */ // TODO
     public static String getSecondToLastElement(String[] array) {
-        return null;
+        String result = "";
+        //get array length
+        int length = array.length;
+        //return array of the length number - 2 (going back 1 from the last element.)
+        result = array[length - 2];
+        return result;
     }
 
     /**
