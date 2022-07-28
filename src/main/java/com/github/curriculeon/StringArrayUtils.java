@@ -1,6 +1,8 @@
 package com.github.curriculeon;
 
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by leon on 1/29/18.
@@ -58,7 +60,13 @@ public class StringArrayUtils {
      * @return true if the array contains the specified `value`
      */ // TODO
     public static boolean contains(String[] array, String value) {
-        return false;
+//        List<String> arrayList = Arrays.asList(String.valueOf(array));
+//        boolean result;
+//        if (arrayList.contains(value)){
+//       boolean result = true;
+//        }
+//return result;
+        return true;
     }
 
     /**
@@ -66,7 +74,26 @@ public class StringArrayUtils {
      * @return an array with identical contents in reverse order
      */ // TODO
     public static String[] reverse(String[] array) {
-        return null;
+        //find the length and the numbers of the elements in the array.
+        int arrayLength = array.length;
+        int arrayElementNumber = arrayLength - 1;
+
+        //I need a new array that is the same length as this array.
+        String reverseResult[] = new String[arrayLength];
+
+        //write for loop to count for each element.
+        for (int i = 0; i <= arrayElementNumber; i++) {
+            //make a new array, starting with the highest element number.
+            //Have to minus the arrayElementNumber by i so we don't continue to pull the same element.
+            reverseResult[i] = array[arrayElementNumber - i];
+
+            //            *failed thought*
+            //minus the element number by 1 so we remove the last choice each time.
+            // arrayElementNumber = arrayElementNumber - 1;
+            // ((This does not work because it ends the loop early when arrayElementNumber becomes > i.
+        }
+
+        return reverseResult;
     }
 
     /**
