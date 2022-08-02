@@ -3,6 +3,7 @@ package com.github.curriculeon;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by leon on 1/29/18.
@@ -84,11 +85,11 @@ public class StringArrayUtils {
         //write for loop to count for each element.
         for (int i = 0; i <= arrayElementNumber; i++) {
             //make a new array, starting with the highest element number.
-            //Have to minus the arrayElementNumber by i so we don't continue to pull the same element.
+            //Have to minus the arrayElementNumber by i, so we don't continue to pull the same element.
             reverseResult[i] = array[arrayElementNumber - i];
 
-            //            *failed thought*
-            //minus the element number by 1 so we remove the last choice each time.
+
+            //minus the element number by 1, so we remove the last choice each time.
             // arrayElementNumber = arrayElementNumber - 1;
             // ((This does not work because it ends the loop early when arrayElementNumber becomes > i.
         }
@@ -101,7 +102,8 @@ public class StringArrayUtils {
      * @return true if the order of the array is the same backwards and forwards
      */ // TODO
     public static Boolean isPalindromic(String[] array) {
-        return null;
+        //Boolean result = (array == reverse(array)); (intelliJ fixed my formatting)
+        return Arrays.equals(array, reverse(array));
     }
 
     /**
@@ -109,7 +111,25 @@ public class StringArrayUtils {
      * @return true if each letter in the alphabet has been used in the array
      */ // TODO
     public static Boolean isPangramic(String[] array) {
-        return null;
+        String wordsAsAString = "";
+        //combine the array into one String(element) so we don't have to loop for every single array element.
+        for (int i = 0; i < array.length; i++) {
+            String word = array[i];
+            wordsAsAString = wordsAsAString + word;
+        }
+
+        //create a variable for alphabet, split it so you don't have to write each letter out.
+        String alphabet = "abcdefghijklmnopqrstuvwxyz";
+        String[] letters = alphabet.split("");
+
+
+        for (int i = 0; i < letters.length; i++) {
+            String letter = letters[i];
+            if (!wordsAsAString.toLowerCase().contains(letter)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
@@ -118,7 +138,16 @@ public class StringArrayUtils {
      * @return number of occurrences the specified `value` has occurred
      */ // TODO
     public static int getNumberOfOccurrences(String[] array, String value) {
-        return 0;
+        int result = 0;
+        int lengthOfArray = array.length;
+
+
+        for (int i = 0; i < lengthOfArray; i++) {
+            if (array[i] == value) {
+                result = result + 1;
+            }
+        }
+        return result;
     }
 
     /**
@@ -127,6 +156,12 @@ public class StringArrayUtils {
      * @return array with identical contents excluding values of `value`
      */ // TODO
     public static String[] removeValue(String[] array, String valueToRemove) {
+        String[] result = new [array.length];
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != valueToRemove) {
+                 result[] = result + array[i];
+            }
+        }
         return null;
     }
 
